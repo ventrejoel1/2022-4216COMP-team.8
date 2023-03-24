@@ -1,3 +1,5 @@
+import csv
+
 #define a fuction for the three options and main menu
 def option1():
     print("\nyou chose option 1")
