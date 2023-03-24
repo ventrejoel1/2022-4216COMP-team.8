@@ -1,19 +1,21 @@
+#define a fuction for the three options and main menu
 def option1():
-    print("you chose option 1")
+    print("\nyou chose option 1")
 
 def option2():
-    print("you chose option 2")
+    print("\nyou chose option 2")
 
 def option3():
-    print("you chose option 3")
+    print("\nyou chose option 3")
 
 def main_menu():
         print("\n === main menu ===")
-        print("1. option 1")
-        print("2. option 2")
+        print("1. display data")
+        print("2. display insights")
         print("3. option 3")
         print("0. quit")
 
+#create a loop to dispay the menu and read user input
 while True:
         main_menu()
         choice = input("enter your choice:")
@@ -31,7 +33,7 @@ while True:
             print("Goodbye!")
             break
 
+#Input validation
 
-
-else:
-     print("invalid choice, try again")
+        else:
+            print("invalid choice, try again") 
