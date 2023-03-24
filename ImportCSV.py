@@ -1,8 +1,14 @@
 import csv
 
-def importCSVfile(FileName):
-    with open(filename,"r") as file:
+def importCSVfile(fileName):
+    global file
+    with open(fileName,"r") as file:
         csv_reader = csv.reader(file)
-        header_row = next(csv_reader)
-        print(header_row)
+
+importCSVfile("Video_Games_Sales_as_at_22_Dec_2016.csv")
+
+selectedheaders = []
+
+def displayData(file,):
+
 
