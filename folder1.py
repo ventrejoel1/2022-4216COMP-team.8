@@ -57,7 +57,18 @@ with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
 
     def option2():
         print("== Please select the insight you would like to view==\n")
-        print("")
+        print("1.Best game by critic_score")
+        print("2.Best platform by critic_score")
+        print("3.What year sold the most games")
+        print("4.The most average game")
+        print("5.Average global sales for platforms")
+        print("6.Average Sales per region per publisher")
+        print("7.Median sales per year")
+        print("8.Mean sales per region")
+        print("9.mininum global sales for a game")
+        userInsights = input("Please enter the insight number you would like to view:\n")
+       
+
     def option3():
         print("\nyou chose option 3")
 
@@ -90,4 +101,25 @@ with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
 
             else:
                 print("invalid choice, try again") 
+
+def insightCode(userInsight):
+    if userInsight == "1":
+        maximiumVal = dataframe.max()
+        print(maximiumVal)
+    elif userInsight == "2":
+        pass
+    elif userInsight == "3":
+        pass
+    elif userInsight == "4":
+        pass
+    elif userInsight == "5":
+        pass
+    elif userInsight == "6":
+        pass
+    elif userInsight == "7":
+        pass
+    elif userInsight == "8":
+        pass
+    elif userInsight == "9":
+        pass
 
