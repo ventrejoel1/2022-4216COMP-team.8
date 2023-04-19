@@ -125,7 +125,7 @@ with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
             print("\n === main menu ===")
             print("1. display data")
             print("2. display insights")
-            print("3. option 3")
+            print("3. Visulisations")
             print("0. quit")
 
 
