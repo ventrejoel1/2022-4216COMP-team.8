@@ -1,7 +1,5 @@
 import csv
 import pandas as pd
-import matplotlib
-
 #importing data
 with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
     csv_reader = csv.reader(file)
