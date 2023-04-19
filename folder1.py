@@ -1,5 +1,6 @@
 import csv
 import pandas as pd
+import matplotlib
 
 #importing data
 with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
@@ -55,8 +56,8 @@ with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
             print("quiting to MAIN MENU...") 
 
     def option2():
-        print("\nyou chose option 2")
-
+        print("== Please select the insight you would like to view==\n")
+        print("")
     def option3():
         print("\nyou chose option 3")
 
