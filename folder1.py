@@ -8,8 +8,8 @@ with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
     header_row = next(csv_reader)
     dataframe = pd.read_csv("Video_Games_Sales_as_at_22_Dec_2016.csv")
     
-    maximiumVal = dataframe.max()
-    minimumVal = dataframe.min()
+    maximiumVal = dataframe.max(numeric_only=True)
+    minimumVal = dataframe.min(numeric_only=True)
 
 #define a fuction for the three options and main menu     
 
