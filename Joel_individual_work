@@ -1,0 +1,46 @@
+#import packages
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import csv
+#open csv file and create dataframe
+with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
+    csv_reader = csv.reader(file)
+    header_row = next(csv_reader)
+    dataframe = pd.read_csv("Video_Games_Sales_as_at_22_Dec_2016.csv")
+#define the funtion we will be using to create each chart
+def genreXregion(region):
+        #initialise variables/lists
+        genreDataframe = (dataframe["Genre"].unique())
+        Top4 = []
+        dataArr = []
+        misc = 0
+        labels = ['action', 'sports', 'roleplaying','shooter', 'misc']
+        #iterate the genre colomn in the csv file by sales
+        for genre in genreDataframe:
+            tempdf = dataframe[dataframe["Genre"] == genre]
+            tempSum = tempdf[region].sum()
+            dataArr.append(tempSum)
+            
+        #reverse order to find biggest value
+        dataArr.sort(reverse = True)
+       
+       #append data to array
+        for i in range (0,4):
+            Top4.append(dataArr[i])
+    
+        for i in range(4,len(dataArr)):
+            misc += dataArr[i]
+            
+        #append misc data to list
+        Top4.append(misc)
+        plt.style.use('seaborn')
+        #create and style the piechart
+        colors = plt.get_cmap('twilight_shifted')(np.linspace(0.3, 0.8, len(Top4)))
+        fig, ax = plt.subplots()
+        chart = ax.pie(Top4, colors=colors, labels=labels, labeldistance=0.55, radius=10, center=(4, 4),wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
+        plt.title(region)
+        plt.show()
+genreXregion("NA_Sales")
+genreXregion("JP_Sales")
+genreXregion("EU_Sales")
