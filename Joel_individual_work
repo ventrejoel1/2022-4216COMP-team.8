@@ -18,8 +18,8 @@ def genreXregion(region):
         labels = ['action', 'sports', 'roleplaying','shooter', 'misc']
         #iterate the genre colomn in the csv file by sales
         for genre in genreDataframe:
-            tempdf = dataframe[dataframe["Genre"] == genre]
-            tempSum = tempdf[region].sum()
+            tempDataframe = dataframe[dataframe["Genre"] == genre]
+            tempSum = tempDataframe[region].sum()
             dataArr.append(tempSum)
             
         #reverse order to find biggest value
