@@ -44,3 +44,31 @@ def genreXregion(region):
 genreXregion("NA_Sales")
 genreXregion("JP_Sales")
 genreXregion("EU_Sales")
+
+def genreXregion2(region):
+    
+        genreDataframe = (dataframe["Genre"].unique())
+        Top4 = []
+        dataArr = []
+        labels = ['action', 'sports', 'roleplaying','shooter']
+   
+        for genre in genreDataframe:
+            tempDataframe = dataframe[dataframe["Genre"] == genre]
+            tempSum = tempDataframe[region].sum()
+            dataArr.append(tempSum)
+            
+        dataArr.sort(reverse = True)
+        
+        for i in range (0,4):
+            Top4.append(dataArr[i])
+            
+        plt.style.use('seaborn')
+   
+        colors = plt.get_cmap('twilight_shifted')(np.linspace(0.3, 0.8, len(Top4)))
+        fig, ax = plt.subplots()
+        chart = ax.pie(Top4, colors=colors, labels=labels, labeldistance=0.55, radius=10, center=(4, 4),wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
+        plt.title(region)
+        plt.show()
+genreXregion2("NA_Sales")
+genreXregion2("JP_Sales")
+genreXregion2("EU_Sales")
