@@ -1,0 +1,39 @@
+import csv
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt 
+#importing data
+with open("Video_Games_Sales_as_at_22_Dec_2016.csv","r") as file:
+    csv_reader = csv.reader(file)
+    header_row = next(csv_reader)
+    dataframe = pd.read_csv("Video_Games_Sales_as_at_22_Dec_2016.csv")
+    platforms = dataframe ["Platform"].unique()
+    performance = []
+
+    np.random.seed(19680801)
+
+    def MeanForRegion(region):
+        for platform in platforms:
+            tempdf = dataframe[(dataframe["Platform"] == platform) & (dataframe[region] )]
+            tempSum = dataframe[region].sum()
+            return tempSum
+
+    performance.append(MeanForRegion("JP_Sales"))
+    performance.append(MeanForRegion("NA_Sales"))
+    performance.append(MeanForRegion("EU_Sales"))
+
+    plt.rcdefaults()
+    fig, ax = plt.subplots()
+
+    Region = ('Japan', 'Northern America', 'Europian Union')
+    y_pos = np.arange(len(Region))
+
+    error = np.random.rand(len(Region))
+
+    ax.barh(y_pos, performance, xerr=error, align='center')
+    ax.set_yticks(y_pos, labels=Region)
+    ax.invert_yaxis()  # labels read top-to-bottom
+    ax.set_xlabel('Platforms')
+    ax.set_title('Platform vs NA/EU/JP')
+
+    plt.show()
