@@ -15,13 +15,13 @@ def genreXplatform():
      while True:
     
     #initialize variables/lists
-        platforms = ["PS2","X360","Wii","PS","DS","PSV","NES""PS4","PC","3DS","PSP",]
+        platforms = ["PS2","X360","Wii","PS","DS","PSV","PC","3DS","PSP"]
         platform = ""
         while platform not in platforms:
-            platform = input("Which platform do you want to view? (PS2, X360, Wii, PS, DS, PSV, NES, PS4, PC, 3DS, PSP), or enter 'quit' to exit: ")
-
-        if platform == "quit":
-            return# exit the function if user chooses to quit
+            
+            platform = input("Which platform do you want to view? (PS2, X360, Wii, PS, DS, PSV, PC, 3DS, PSP): ")
+            
+      
         
         if platform not in platforms:
             print('Invalid platform, please enter a valid platform.')
